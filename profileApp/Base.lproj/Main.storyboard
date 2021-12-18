@@ -116,7 +116,11 @@
                                 <segue destination="GeK-fc-goS" kind="unwind" unwindAction="unwindSegueWithSegue:" id="HHq-IJ-u4J"/>
                             </connections>
                         </barButtonItem>
-                        <barButtonItem key="rightBarButtonItem" title="Item" image="pencil.circle" catalog="system" style="plain" id="LfD-SM-v3h"/>
+                        <barButtonItem key="rightBarButtonItem" title="Item" image="pencil.circle" catalog="system" style="plain" id="LfD-SM-v3h">
+                            <connections>
+                                <segue destination="8Vj-aM-euh" kind="presentation" identifier="segueToTabSettingsAndAbout" id="eWn-KS-8kY"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <connections>
                         <outlet property="imageProfile" destination="WGb-5h-7rk" id="nTF-oz-ekh"/>
@@ -128,33 +132,33 @@
             </objects>
             <point key="canvasLocation" x="926" y="1581"/>
         </scene>
-        <!--Item 1-->
+        <!--Настройки-->
         <scene sceneID="Bzg-GB-ydo">
             <objects>
-                <viewController id="Y1E-OX-T7e" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="SettingsViewController" id="Y1E-OX-T7e" customClass="SettingsViewController" customModule="profileApp" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="PDM-bk-OJw">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <viewLayoutGuide key="safeArea" id="Pqz-gj-eWL"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Item 1" id="PE4-Pq-uEL"/>
+                    <navigationItem key="navigationItem" title="Настройки" id="YEo-jR-MNs"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="2qV-T3-vb5" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2612" y="1277"/>
+            <point key="canvasLocation" x="3551.1999999999998" y="1276.9115442278862"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="BAQ-LF-q8I">
             <objects>
-                <tabBarController id="8Vj-aM-euh" sceneMemberID="viewController">
+                <tabBarController modalPresentationStyle="fullScreen" id="8Vj-aM-euh" sceneMemberID="viewController">
                     <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="urh-Fn-ODx">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="49"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </tabBar>
                     <connections>
-                        <segue destination="Y1E-OX-T7e" kind="relationship" relationship="viewControllers" id="2Wq-cQ-WDj"/>
+                        <segue destination="zRK-Pt-43b" kind="relationship" relationship="viewControllers" id="2Wq-cQ-WDj"/>
                         <segue destination="vUJ-kL-lwg" kind="relationship" relationship="viewControllers" id="IUm-Ab-Ivq"/>
                     </connections>
                 </tabBarController>
@@ -165,18 +169,56 @@
         <!--Item-->
         <scene sceneID="g2c-qJ-up0">
             <objects>
-                <viewController modalPresentationStyle="fullScreen" id="vUJ-kL-lwg" customClass="SettingsViewController" customModule="profileApp" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="AboutMeViewController" modalPresentationStyle="fullScreen" id="vUJ-kL-lwg" customClass="AboutMeViewController" customModule="profileApp" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="67u-Jz-qP4">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Информация о себе" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="QIm-td-Jyo">
+                                <rect key="frame" x="72" y="20" width="231" height="28"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="23"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumFontSize="9" adjustsLetterSpacingToFitWidth="YES" translatesAutoresizingMaskIntoConstraints="NO" id="2fp-PJ-hdW">
+                                <rect key="frame" x="33" y="278" width="309" height="301"/>
+                                <mutableString key="text">Привет! Меня зовут Арслан Мне 22 года, живу в Москве. Я работаю и учусь одновременно. Профиль обучения - Мировая экономика. Работаю в компании Yota, продавцом. Из хобби могу отметить: путешествия (порой спонтанные), попытки регулярно ходить в тренажерный зал, знакомства с новыми людьми, к сожалению, работа и учеба не позволяют найти еще больше хобби. Языки программирования учу с 10 класса, каждый раз не хватало мотивации, либо страх, что я не создан для этого. Это моя 6 попытка :)</mutableString>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="me" translatesAutoresizingMaskIntoConstraints="NO" id="tn5-YD-q6L">
+                                <rect key="frame" x="112.5" y="88" width="150" height="150"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="150" id="U7i-9i-aGm"/>
+                                    <constraint firstAttribute="height" constant="150" id="nNI-ag-nVG"/>
+                                </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="8"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </imageView>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="mMz-m1-yFG"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="tn5-YD-q6L" firstAttribute="top" secondItem="QIm-td-Jyo" secondAttribute="bottom" constant="40" id="5ha-1A-7QE"/>
+                            <constraint firstItem="2fp-PJ-hdW" firstAttribute="leading" secondItem="mMz-m1-yFG" secondAttribute="leading" constant="33" id="A1i-uQ-EHQ"/>
+                            <constraint firstItem="2fp-PJ-hdW" firstAttribute="top" secondItem="tn5-YD-q6L" secondAttribute="bottom" constant="40" id="Ct1-4K-IG6"/>
+                            <constraint firstItem="QIm-td-Jyo" firstAttribute="top" secondItem="mMz-m1-yFG" secondAttribute="top" constant="20" id="FUe-mT-cZR"/>
+                            <constraint firstItem="tn5-YD-q6L" firstAttribute="centerX" secondItem="67u-Jz-qP4" secondAttribute="centerX" id="aJU-VI-5pf"/>
+                            <constraint firstItem="mMz-m1-yFG" firstAttribute="trailing" secondItem="2fp-PJ-hdW" secondAttribute="trailing" constant="33" id="dN0-5z-Gv6"/>
+                            <constraint firstItem="QIm-td-Jyo" firstAttribute="centerX" secondItem="67u-Jz-qP4" secondAttribute="centerX" id="zPZ-Mm-z9b"/>
+                        </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Item" id="nRr-zD-h6r"/>
+                    <tabBarItem key="tabBarItem" title="Item" image="person.fill" catalog="system" id="nRr-zD-h6r">
+                        <color key="badgeColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    </tabBarItem>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="6Op-lk-Pc6" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2612" y="1929"/>
+            <point key="canvasLocation" x="3550.7246376811595" y="1927.9891304347827"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="xEi-nd-luX">
@@ -206,7 +248,6 @@
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="backgroundLamp" translatesAutoresizingMaskIntoConstraints="NO" id="XNT-gv-GgZ">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                                <color key="tintColor" red="0.035209765380000001" green="0.035068434799999999" blue="0.037537128029999998" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                             </imageView>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="26" translatesAutoresizingMaskIntoConstraints="NO" id="wrc-ej-dOT">
                                 <rect key="frame" x="60" y="218" width="255" height="191"/>
@@ -300,10 +341,32 @@
             </objects>
             <point key="canvasLocation" x="16.800000000000001" y="821.73913043478262"/>
         </scene>
+        <!--Item 1-->
+        <scene sceneID="Tbq-6w-e5e">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="zRK-Pt-43b" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Item 1" image="circle.hexagongrid.fill" catalog="system" id="PE4-Pq-uEL"/>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="dNz-hy-hbv">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="Y1E-OX-T7e" kind="relationship" relationship="rootViewController" id="68x-Br-5ZZ"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="qgN-IH-EME" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2612" y="1276.9115442278862"/>
+        </scene>
     </scenes>
     <resources>
         <image name="backgroundLamp" width="500" height="333"/>
+        <image name="circle.hexagongrid.fill" catalog="system" width="128" height="112"/>
+        <image name="me" width="768" height="1024"/>
         <image name="pencil.circle" catalog="system" width="128" height="121"/>
+        <image name="person.fill" catalog="system" width="128" height="120"/>
         <image name="woman" width="1000" height="1500"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
