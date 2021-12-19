@@ -17,8 +17,8 @@ class LogInViewController: UIViewController {
     private var person = Person()
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        guard let navContorller = segue.destination as? UINavigationController else { return }
-        guard let profile = navContorller.topViewController as? ProfileViewController else { return }
+        guard let navController = segue.destination as? UINavigationController else { return }
+        guard let profile = navController.topViewController as? ProfileViewController else { return }
         profile.nameOfUser = person.getName()
     }
     

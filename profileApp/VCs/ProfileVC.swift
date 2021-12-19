@@ -11,6 +11,8 @@ class ProfileViewController: UIViewController {
     @IBOutlet weak var imageProfile: UIImageView!
     @IBOutlet weak var titleName: UINavigationItem!
     
+    private var person = Person()
+    
     var nameOfUser = ""
     
     override func viewDidLoad() {
@@ -19,5 +21,17 @@ class ProfileViewController: UIViewController {
         imageProfile.layer.borderColor = UIColor.lightGray.cgColor
         titleName.title = nameOfUser
     }
-
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+            if let tabController = segue.destination as? UITabBarController
+        {
+                tabController.viewControllers?.forEach {
+                    if let nav = $0 as? UINavigationController {
+                        let settings = nav.topViewController as! SettingsViewController
+                        settings.user = person.getName()
+                    }
+                }
+            }
+            
+        }
 }

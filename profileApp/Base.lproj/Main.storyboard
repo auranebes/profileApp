@@ -11,7 +11,7 @@
         <!--Профиль-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController storyboardIdentifier="ProfileViewController" id="BYZ-38-t0r" customClass="ProfileViewController" customModule="profileApp" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="ProfileViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="BYZ-38-t0r" customClass="ProfileViewController" customModule="profileApp" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -98,7 +98,7 @@
                             </stackView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <color key="backgroundColor" systemColor="systemGray6Color"/>
                         <constraints>
                             <constraint firstItem="WGb-5h-7rk" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="H4q-nj-R93"/>
                             <constraint firstItem="WGb-5h-7rk" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="20" id="Jbe-be-u3j"/>
@@ -139,10 +139,37 @@
                     <view key="view" contentMode="scaleToFill" id="PDM-bk-OJw">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MfF-0b-L30">
+                                <rect key="frame" x="136.5" y="318" width="102" height="31"/>
+                                <color key="backgroundColor" systemColor="systemTealColor"/>
+                                <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" title="Хочу выйти" cornerStyle="capsule"/>
+                                <connections>
+                                    <action selector="exitToLogin" destination="Y1E-OX-T7e" eventType="touchUpInside" id="Ssp-Qt-Dbk"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="13" translatesAutoresizingMaskIntoConstraints="NO" id="fHW-XK-QLl">
+                                <rect key="frame" x="157" y="278" width="61" height="31"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="26"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="Pqz-gj-eWL"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <color key="backgroundColor" systemColor="systemGray6Color"/>
+                        <constraints>
+                            <constraint firstItem="MfF-0b-L30" firstAttribute="centerY" secondItem="PDM-bk-OJw" secondAttribute="centerY" id="0ol-rF-3S9"/>
+                            <constraint firstItem="MfF-0b-L30" firstAttribute="top" secondItem="fHW-XK-QLl" secondAttribute="bottom" constant="9" id="Nis-Ib-Bja"/>
+                            <constraint firstItem="MfF-0b-L30" firstAttribute="centerX" secondItem="PDM-bk-OJw" secondAttribute="centerX" id="Pxl-iG-OsV"/>
+                            <constraint firstItem="fHW-XK-QLl" firstAttribute="centerX" secondItem="PDM-bk-OJw" secondAttribute="centerX" id="YDR-FI-sxk"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Настройки" id="YEo-jR-MNs"/>
+                    <connections>
+                        <outlet property="testLabel" destination="fHW-XK-QLl" id="RUZ-x2-adK"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="2qV-T3-vb5" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -155,7 +182,8 @@
                     <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="urh-Fn-ODx">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="49"/>
                         <autoresizingMask key="autoresizingMask"/>
-                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="backgroundColor" systemColor="quaternaryLabelColor"/>
+                        <color key="selectedImageTintColor" systemColor="systemIndigoColor"/>
                     </tabBar>
                     <connections>
                         <segue destination="zRK-Pt-43b" kind="relationship" relationship="viewControllers" id="2Wq-cQ-WDj"/>
@@ -166,7 +194,7 @@
             </objects>
             <point key="canvasLocation" x="1746" y="1581"/>
         </scene>
-        <!--Item-->
+        <!--Автор-->
         <scene sceneID="g2c-qJ-up0">
             <objects>
                 <viewController storyboardIdentifier="AboutMeViewController" modalPresentationStyle="fullScreen" id="vUJ-kL-lwg" customClass="AboutMeViewController" customModule="profileApp" customModuleProvider="target" sceneMemberID="viewController">
@@ -182,7 +210,7 @@
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumFontSize="9" adjustsLetterSpacingToFitWidth="YES" translatesAutoresizingMaskIntoConstraints="NO" id="2fp-PJ-hdW">
                                 <rect key="frame" x="33" y="278" width="309" height="301"/>
-                                <mutableString key="text">Привет! Меня зовут Арслан Мне 22 года, живу в Москве. Я работаю и учусь одновременно. Профиль обучения - Мировая экономика. Работаю в компании Yota, продавцом. Из хобби могу отметить: путешествия (порой спонтанные), попытки регулярно ходить в тренажерный зал, знакомства с новыми людьми, к сожалению, работа и учеба не позволяют найти еще больше хобби. Языки программирования учу с 10 класса, каждый раз не хватало мотивации, либо страх, что я не создан для этого. Это моя 6 попытка :)</mutableString>
+                                <string key="text">Привет! Меня зовут Арслан Мне 22 года, живу в Москве. Я работаю и учусь одновременно. Профиль обучения - Мировая экономика. Работаю в компании Yota, продавцом. Из хобби могу отметить: путешествия (порой спонтанные), попытки регулярно ходить в тренажерный зал, знакомства с новыми людьми, к сожалению, работа и учеба не позволяют найти еще больше хобби. Языки программирования учу с 10 класса, каждый раз не хватало мотивации, либо страх, что я не создан для этого. Это моя 6 попытка :)</string>
                                 <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -201,7 +229,7 @@
                             </imageView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="mMz-m1-yFG"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <color key="backgroundColor" systemColor="systemGray6Color"/>
                         <constraints>
                             <constraint firstItem="tn5-YD-q6L" firstAttribute="top" secondItem="QIm-td-Jyo" secondAttribute="bottom" constant="40" id="5ha-1A-7QE"/>
                             <constraint firstItem="2fp-PJ-hdW" firstAttribute="leading" secondItem="mMz-m1-yFG" secondAttribute="leading" constant="33" id="A1i-uQ-EHQ"/>
@@ -212,7 +240,7 @@
                             <constraint firstItem="QIm-td-Jyo" firstAttribute="centerX" secondItem="67u-Jz-qP4" secondAttribute="centerX" id="zPZ-Mm-z9b"/>
                         </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Item" image="person.fill" catalog="system" id="nRr-zD-h6r">
+                    <tabBarItem key="tabBarItem" title="Автор" image="person.fill" catalog="system" id="nRr-zD-h6r">
                         <color key="badgeColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </tabBarItem>
                 </viewController>
@@ -223,7 +251,7 @@
         <!--Navigation Controller-->
         <scene sceneID="xEi-nd-luX">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" modalPresentationStyle="fullScreen" id="fdE-c9-v4g" sceneMemberID="viewController">
+                <navigationController storyboardIdentifier="ProfileNavigation" automaticallyAdjustsScrollViewInsets="NO" modalPresentationStyle="fullScreen" useStoryboardIdentifierAsRestorationIdentifier="YES" id="fdE-c9-v4g" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="aaF-uz-pj6">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
@@ -273,6 +301,7 @@
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ulR-tD-b5z">
                                                 <rect key="frame" x="0.0" y="0.0" width="255" height="30.5"/>
+                                                <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <state key="normal" title="Button"/>
                                                 <buttonConfiguration key="configuration" style="plain" cornerStyle="capsule">
                                                     <backgroundConfiguration key="background">
@@ -295,6 +324,7 @@
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wFD-xJ-G69">
                                                 <rect key="frame" x="0.0" y="40.5" width="255" height="30.5"/>
+                                                <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <state key="normal" title="Button"/>
                                                 <buttonConfiguration key="configuration" style="plain" cornerStyle="capsule">
                                                     <backgroundConfiguration key="background">
@@ -319,7 +349,7 @@
                             </stackView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="cZn-Xu-tid"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="wrc-ej-dOT" firstAttribute="leading" secondItem="cZn-Xu-tid" secondAttribute="leading" constant="60" id="3Pt-jW-ixv"/>
                             <constraint firstItem="XNT-gv-GgZ" firstAttribute="trailing" secondItem="cZn-Xu-tid" secondAttribute="trailing" id="6ml-qV-AL9"/>
@@ -341,11 +371,11 @@
             </objects>
             <point key="canvasLocation" x="16.800000000000001" y="821.73913043478262"/>
         </scene>
-        <!--Item 1-->
+        <!--Настройки-->
         <scene sceneID="Tbq-6w-e5e">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="zRK-Pt-43b" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Item 1" image="circle.hexagongrid.fill" catalog="system" id="PE4-Pq-uEL"/>
+                    <tabBarItem key="tabBarItem" title="Настройки" image="circle.hexagongrid.fill" catalog="system" id="PE4-Pq-uEL"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="dNz-hy-hbv">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
@@ -368,11 +398,20 @@
         <image name="pencil.circle" catalog="system" width="128" height="121"/>
         <image name="person.fill" catalog="system" width="128" height="120"/>
         <image name="woman" width="1000" height="1500"/>
-        <systemColor name="systemBackgroundColor">
-            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        <systemColor name="quaternaryLabelColor">
+            <color red="0.23529411764705882" green="0.23529411764705882" blue="0.2627450980392157" alpha="0.17999999999999999" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+        <systemColor name="systemGray6Color">
+            <color red="0.94901960784313721" green="0.94901960784313721" blue="0.96862745098039216" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
         <systemColor name="systemGrayColor">
             <color red="0.55686274509803924" green="0.55686274509803924" blue="0.57647058823529407" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+        <systemColor name="systemIndigoColor">
+            <color red="0.34509803921568627" green="0.33725490196078434" blue="0.83921568627450982" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+        <systemColor name="systemTealColor">
+            <color red="0.18823529411764706" green="0.69019607843137254" blue="0.7803921568627451" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>
